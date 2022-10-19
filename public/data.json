@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "634f888f8e86a9c186b9f392",
+    "picture": "https://images.unsplash.com/flagged/photo-1556438758-8d49568ce18e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+    "name": "Standart Single Room",
+    "company": "KEENGEN"
+  },
+  {
+    "_id": "634f888f6f20573e2467c29e",
+    "picture": "https://images.unsplash.com/photo-1505773278895-5efa7b11679a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=622&q=80",
+    "name": "Standart Dubble Room",
+    "company": "ACCUFARM"
+  },
+  {
+    "_id": "634f888f5cf7bf05e6611cc0",
+    "picture": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    "name": "Standart King Room",
+    "company": "CENTICE"
+  }
+]
