@@ -22,7 +22,7 @@ const Banner = () => {
                 cook
               </TypeWriter>
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-warning">Get Started</button>
           </div>
         </div>
       </div>
