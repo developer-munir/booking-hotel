@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "../../assets/hotel-banner2.avif";
+import banner from "../../assets/hotel-banner.avif";
 import TypeWriter from "react-typewriter";
 const Banner = () => {
   return (

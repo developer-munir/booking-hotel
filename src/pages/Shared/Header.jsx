@@ -29,7 +29,7 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52"
             >
               <li tabIndex={0}>
-                <Link className="justify-between">
+                <Link className="justify-between" to="/">
                   Home
                   <svg
                     className="fill-current"
@@ -41,7 +41,7 @@ const Header = () => {
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                   </svg>
                 </Link>
-                <ul className="p-2">
+                <ul className="p-2 bg-base-300">
                   <li>
                     <Link>Submenu 1</Link>
                   </li>
@@ -51,16 +51,16 @@ const Header = () => {
                 </ul>
               </li>
               <li>
-                <Link>Rooms</Link>
+                <Link to="/rooms">Rooms</Link>
               </li>
               <li>
-                <Link>Services</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li>
-                <Link>LogIn</Link>
+                <Link to="/login">LogIn</Link>
               </li>
               <li>
-                <Link>SingUp</Link>
+                <Link to="/signup">SingUp</Link>
               </li>
               <li>
                 <span>
@@ -78,7 +78,7 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li tabIndex={0}>
-              <Link>
+              <Link to="/">
                 Home
                 <svg
                   className="fill-current"
@@ -90,7 +90,7 @@ const Header = () => {
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </Link>
-              <ul className="p-2">
+              <ul className="p-2 bg-base-300">
                 <li>
                   <Link>Submenu 1</Link>
                 </li>
@@ -100,16 +100,16 @@ const Header = () => {
               </ul>
             </li>
             <li>
-              <Link>Rooms</Link>
+              <Link to="/rooms">Rooms</Link>
             </li>
             <li>
-              <Link>Services</Link>
+              <Link to="/services">Services</Link>
             </li>
             <li>
-              <Link>LogIn</Link>
+              <Link to="/login">LogIn</Link>
             </li>
             <li>
-              <Link>SingUp</Link>
+              <Link to="/signup">SingUp</Link>
             </li>
           </ul>
         </div>
