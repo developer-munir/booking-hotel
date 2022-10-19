@@ -1,20 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
+import { AuthContext } from "../../contexts/UserContexts";
 
 const LogIn = () => {
-    return (
-      <div>
-        <div className="hero min-h-screen bg-base-200 font-serif">
-          <div className="hero-content flex-col">
-            <div className="text-center">
-              <h1 className="text-5xl font-bold">LogIn now!</h1>
-              <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi.
-              </p>
-            </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+  const { loginUser } = useContext(AuthContext);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then((result) => {
+        const axistingUser = result.user;
+        console.log(axistingUser);
+        alert("login successfully");
+      })
+      .then((error) => {
+        console.error(error);
+      });
+  };
+  return (
+    <div>
+      <div className="hero min-h-screen bg-base-200 font-serif">
+        <div className="hero-content flex-col">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold">LogIn now!</h1>
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi.
+            </p>
+          </div>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handleLogin}>
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -68,11 +86,12 @@ const LogIn = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default LogIn;

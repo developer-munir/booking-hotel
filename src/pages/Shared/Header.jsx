@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaPhoneAlt, FaStore } from "react-icons/fa";
+import { AuthContext } from "../../contexts/UserContexts";
 
 const Header = () => {
+  const { user, logOutUser } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-base-300 font-serif uppercase">
@@ -50,18 +52,31 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
-              <li>
-                <Link to="/rooms">Rooms</Link>
-              </li>
-              <li>
-                <Link to="/services">Services</Link>
-              </li>
-              <li>
-                <Link to="/login">LogIn</Link>
-              </li>
-              <li>
-                <Link to="/signup">SingUp</Link>
-              </li>
+              {user?.uid ? (
+                <>
+                  <li>
+                    <Link to="/rooms">Rooms</Link>
+                  </li>
+                  <li>
+                    <Link to="/services">Services</Link>
+                  </li>
+                  <li>
+                    <Link to="/signup" onClick={logOutUser}>
+                      LogOut
+                    </Link>
+                  </li>
+                  <li>{user?.uid ? user.email : ""}</li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">LogIn</Link>
+                  </li>
+                  <li>
+                    <Link to="/signup">SingUp</Link>
+                  </li>
+                </>
+              )}
               <li>
                 <span>
                   <FaPhoneAlt className="text-black"></FaPhoneAlt>
@@ -99,18 +114,31 @@ const Header = () => {
                 </li>
               </ul>
             </li>
-            <li>
-              <Link to="/rooms">Rooms</Link>
-            </li>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
-            <li>
-              <Link to="/login">LogIn</Link>
-            </li>
-            <li>
-              <Link to="/signup">SingUp</Link>
-            </li>
+            {user?.uid ? (
+              <>
+                <li>
+                  <Link to="/rooms">Rooms</Link>
+                </li>
+                <li>
+                  <Link to="/services">Services</Link>
+                </li>
+                <li>
+                  <Link to="/signup" onClick={logOutUser}>
+                    LogOut
+                  </Link>
+                </li>
+                <li>{user?.uid ? user.email : ""}</li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">LogIn</Link>
+                </li>
+                <li>
+                  <Link to="/signup">SingUp</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
