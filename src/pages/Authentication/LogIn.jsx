@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/UserContexts";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const { loginUser } = useContext(AuthContext);
@@ -20,7 +22,7 @@ const LogIn = () => {
         if (axistingUser?.emailVerified === false) {
           return alert("your are not valid user!! please varify your email address.");
         }
-        alert("login successfully");
+        toast("login successfully");
         navigate(from, { replace: true });
       })
       .then((error) => {

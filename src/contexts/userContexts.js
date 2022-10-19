@@ -3,7 +3,6 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailV
 import app from '../firebase/firebase.config';
  import {  toast } from "react-toastify";
  import "react-toastify/dist/ReactToastify.css";
-import { async } from '@firebase/util';
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
@@ -12,7 +11,8 @@ const UserContexts = ({ children }) => {
     const [user, setUser] = useState(null);
     const [serviceDetails, setServiceDetails] = useState([]);
     const [loader, setLoader] = useState(true);
-    const notify = () => toast("Wow so easy!");
+    const notify = () =>
+      toast("Email verification sent.Please cheak spam folder!!");
     const createUser = (email, password) => {
         setLoader(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -20,8 +20,9 @@ const UserContexts = ({ children }) => {
     const verifyUser = ()=>{
         return sendEmailVerification(auth.currentUser)
         .then(() => {
-            alert("Email verification sent.Please cheak spam folder!!");
-            // notify();
+            // alert("Email verification sent.Please cheak spam folder!!");
+            notify();
+
         });
     }
     const loginUser = (email, password) => {
@@ -40,7 +41,7 @@ const UserContexts = ({ children }) => {
         setLoader(true);
         return signOut(auth)
             .then(() => {
-            alert('logout successfully')
+            toast('logout successfully')
             })
             .catch(error => {
                 console.error(error);
