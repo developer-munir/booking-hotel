@@ -3,12 +3,14 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailV
 import app from '../firebase/firebase.config';
  import {  toast } from "react-toastify";
  import "react-toastify/dist/ReactToastify.css";
+import { async } from '@firebase/util';
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
 
 const UserContexts = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [serviceDetails, setServiceDetails] = useState([]);
     const notify = () => toast("Wow so easy!");
     const createUser = (email,password)=>{
         return createUserWithEmailAndPassword(auth, email, password);
@@ -39,7 +41,12 @@ const UserContexts = ({ children }) => {
                 console.error(error);
         })
     }
-    const authInfo ={user,createUser,logOutUser,loginUser,verifyUser};
+    useEffect(() => {
+        fetch('data.json')
+        .then(res => res.json())
+        .then(data => setServiceDetails(data))
+    },[])
+    const authInfo ={user,createUser,logOutUser,loginUser,verifyUser,serviceDetails};
     return <AuthContext.Provider value={authInfo}>
         {children}
     </AuthContext.Provider>

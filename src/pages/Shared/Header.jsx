@@ -43,7 +43,7 @@ const Header = () => {
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                   </svg>
                 </Link>
-                <ul className="p-2 bg-base-300">
+                <ul className="p-2 bg-base-300 z-10">
                   <li>
                     <Link>Submenu 1</Link>
                   </li>
@@ -52,20 +52,21 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
+
+              <li>
+                <Link to="/rooms">Rooms</Link>
+              </li>
               {user?.uid ? (
                 <>
                   <li>
-                    <Link to="/rooms">Rooms</Link>
-                  </li>
-                  <li>
                     <Link to="/services">Services</Link>
                   </li>
+
                   <li>
                     <Link to="/signup" onClick={logOutUser}>
                       LogOut
                     </Link>
                   </li>
-                  <li>{user?.uid ? user.email : ""}</li>
                 </>
               ) : (
                 <>
@@ -105,7 +106,7 @@ const Header = () => {
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </Link>
-              <ul className="p-2 bg-base-300">
+              <ul className="p-2 bg-base-300 z-10">
                 <li>
                   <Link>Submenu 1</Link>
                 </li>
@@ -114,28 +115,35 @@ const Header = () => {
                 </li>
               </ul>
             </li>
+            <li>
+              <Link to="/rooms" className="mr-2">
+                Rooms
+              </Link>
+            </li>
             {user?.uid ? (
               <>
                 <li>
-                  <Link to="/rooms">Rooms</Link>
+                  <Link to="/services" className="mr-2">
+                    Services
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/services">Services</Link>
-                </li>
-                <li>
-                  <Link to="/signup" onClick={logOutUser}>
+                  <Link to="/signup" className="mr-2" onClick={logOutUser}>
                     LogOut
                   </Link>
                 </li>
-                <li>{user?.uid ? user.email : ""}</li>
               </>
             ) : (
               <>
                 <li>
-                  <Link to="/login">LogIn</Link>
+                  <Link to="/login" className="mr-2">
+                    LogIn
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/signup">SingUp</Link>
+                  <Link to="/signup" className="mr-2">
+                    SingUp
+                  </Link>
                 </li>
               </>
             )}
