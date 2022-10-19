@@ -56,7 +56,7 @@ const Header = () => {
               <li>
                 <Link to="/rooms">Rooms</Link>
               </li>
-              {user?.uid ? (
+              {user?.uid && user?.emailVerified === true ? (
                 <>
                   <li>
                     <Link to="/services">Services</Link>
@@ -120,7 +120,7 @@ const Header = () => {
                 Rooms
               </Link>
             </li>
-            {user?.uid ? (
+            {user?.uid  &&  user?.emailVerified === true ? (
               <>
                 <li>
                   <Link to="/services" className="mr-2">

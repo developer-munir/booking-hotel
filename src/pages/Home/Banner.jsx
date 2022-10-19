@@ -1,6 +1,7 @@
 import React from "react";
 import banner from "../../assets/hotel-banner.avif";
 import TypeWriter from "react-typewriter";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="font-serif">
@@ -22,7 +23,9 @@ const Banner = () => {
                 cook
               </TypeWriter>
             </p>
-            <button className="btn btn-warning">Get Started</button>
+            <Link to='/rooms'>
+              <button className="btn btn-warning">Get Started</button>
+            </Link>
           </div>
         </div>
       </div>

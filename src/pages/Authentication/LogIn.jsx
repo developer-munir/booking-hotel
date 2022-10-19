@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../contexts/UserContexts";
 
 const LogIn = () => {
   const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/rooms";
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,7 +17,11 @@ const LogIn = () => {
       .then((result) => {
         const axistingUser = result.user;
         console.log(axistingUser);
+        if (axistingUser?.emailVerified === false) {
+          return alert("your are not valid user!! please varify your email address.");
+        }
         alert("login successfully");
+        navigate(from, { replace: true });
       })
       .then((error) => {
         console.error(error);

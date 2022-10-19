@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ room }) => {
   const { picture, name,company } = room;
@@ -26,7 +27,9 @@ const ServiceCard = ({ room }) => {
             necessitatibus, tempore ullam fugit, ipsum dolor...
           </div>
           <div className="card-actions justify-center">
+            <Link to='/services'>
             <button className="btn btn-warning">Service</button>
+            </Link>
           </div>
         </div>
       </div>
